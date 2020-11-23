@@ -8,9 +8,13 @@ import (
 func TestCheck(t *testing.T) {
 	var c Check
 	assert.Equal(t, true, c.CheckAndStart())
+	assert.Equal(t, true, c.Current())
 	assert.Equal(t, false, c.CheckAndStart())
+	assert.Equal(t, true, c.Current())
 	c.End()
+	assert.Equal(t, false, c.Current())
 	assert.Equal(t, true, c.CheckAndStart())
+	assert.Equal(t, true, c.Current())
 }
 
 func TestSwitch_Flip(t *testing.T) {
